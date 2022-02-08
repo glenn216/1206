@@ -40,105 +40,118 @@ const string UCSP   =     @"zoommtg://zoom.us/join?action=join&confno=7804463577
 #region SetB
 const string PEH4   =     @"zoommtg://zoom.us/join?action=join&confno=75137764227&pwd=dFlMaU9FcU1KY1ZLb1VJQXVzU1RjZz09";
 const string GC2    =     @"zoommtg://zoom.us/join?action=join&confno=6780299108&pwd=N2tTbnpEZXNXUFFmWjB5K3RTeCtZZz09";
-const string GB2    =     @"zoommtg://zoom.us/join?action=join&confno=86887008211&pwd=MmpyZVVMSVhwMDhTZWs0ZUJmNDI4Zz09";
+const string GB2    =     @"zoommtg://zoom.us/join?action=join&confno=2709602484&pwd=eTR3Sm8rQ1VYdHFtbE1lc2dIZGVJUT09";
 const string EAPP   =     @"zoommtg://zoom.us/join?action=join&confno=87035610843&pwd=cjRYaS9PeG1aUmM2cFRjY2c2SDlJUT09";
 #endregion
 
-Console.WriteLine("Enter the number from the selection.");
-Console.WriteLine("     [1] Set A Subjects");
-Console.WriteLine("     [2] Set B Subjects");
-Console.Write("Input: ");
-
-switch (Console.ReadLine())
+string input;
+try
 {
-    case "1":
+    bool primaryHeader = true;
+    do
+    {
         Console.Clear();
         Console.WriteLine("Enter the number from the selection.");
-        Console.WriteLine("     [1] Homeroom");
-        Console.WriteLine("     [2] Media and Information Literacy");
-        Console.WriteLine("     [3] General Physics 2");
-        Console.WriteLine("     [4] Contemporary Philippine Arts from the Regions");
-        Console.WriteLine("     [5] Understanding Culture Society and Politics");
-        Console.WriteLine("     [6] Exit");
-        while (true)
-        {
-            Console.Write("Input: ");
-            switch (Console.ReadLine())
-            {
-                case "1":
-                    // Navigate(HR_URL);
-                    LaunchZoom(HR);
-                    break;
-                case "2":
-                    // Navigate(MIL_URL);
-                    LaunchZoom(MIL);
-                    break;
-                case "3":
-                    // Navigate(GP6_URL);
-                    LaunchZoom(GP6);
-                    break;
-                case "4":
-                    // Navigate(CPAR_URL);
-                    LaunchZoom(CPAR);
-                    break;
-                case "5":
-                    // Navigate(UCSP_URL);
-                    LaunchZoom(UCSP);
-                    break;
-                case "6":
-                    Environment.Exit(0);
-                    break;
-                default: throw new Exception();
-            }
-        }
+        Console.WriteLine("     [0] Set A Subjects");
+        Console.WriteLine("     [1] Set B Subjects");
+        Console.Write("Input: ");
+        input = Console.ReadLine();
 
-    case "2":
-        Console.Clear();
-        Console.WriteLine("Enter the number from the selection.");
-        Console.WriteLine("     [1] Homeroom");
-        Console.WriteLine("     [2] Physical Education and Health 4");
-        Console.WriteLine("     [3] General Chemistry 2");
-        Console.WriteLine("     [4] General Biology 2");
-        Console.WriteLine("     [5] English for Academic and Professional Purposes");
-        Console.WriteLine("     [6] Exit");
-        while (true)
+        switch (input)
         {
-            Console.Write("Input: ");
-            switch (Console.ReadLine())
-            {
-                case "1":
-                    // Navigate(HR_URL);
-                    LaunchZoom(HR);
+            case "0":
+                {
+                    primaryHeader = false;
+                    bool secondaryHeader = true;
+                    do
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("Enter the number from the selection.");
+                        Console.WriteLine("     [0] Homeroom");
+                        Console.WriteLine("     [1] Media and Information Literacy");
+                        Console.WriteLine("     [2] General Physics 2");
+                        Console.WriteLine("     [3] Contemporary Philippine Arts from the Regions");
+                        Console.WriteLine("     [4] Understanding Culture Society and Politics");
+                        Console.WriteLine("     [5] Exit");
+                        Console.Write("Input: ");
+                        input = Console.ReadLine();
+                        switch (input)
+                        {
+                            case "0":
+                                LaunchZoom(HR);
+                                break;
+                            case "1":
+                                LaunchZoom(MIL);
+                                break;
+                            case "2":
+                                LaunchZoom(GP6);
+                                break;
+                            case "3":
+                                LaunchZoom(CPAR);
+                                break;
+                            case "4":
+                                LaunchZoom(UCSP);
+                                break;
+                            case "5":
+                                Environment.Exit(0);
+                                break;
+                        }
+                    } while (secondaryHeader = true);
                     break;
-                case "2":
-                    // Navigate(PEH4_URL);
-                    LaunchZoom(PEH4);
+                }
+
+            case "1":
+                {
+                    primaryHeader = false;
+                    bool secondaryHeader = true;
+                    do
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("Enter the number from the selection.");
+                        Console.WriteLine("     [0] Homeroom");
+                        Console.WriteLine("     [1] Physical Education and Health 4");
+                        Console.WriteLine("     [2] General Chemistry 2");
+                        Console.WriteLine("     [3] General Biology 2");
+                        Console.WriteLine("     [4] English for Academic and Professional Purposes");
+                        Console.WriteLine("     [5] Exit");
+                        Console.Write("Input: ");
+                        input = Console.ReadLine();
+                        switch (input)
+                        {
+                            case "0":
+                                LaunchZoom(HR);
+                                break;
+                            case "1":
+                                LaunchZoom(PEH4);
+                                break;
+                            case "2":
+                                LaunchZoom(GC2);
+                                break;
+                            case "3":
+                                LaunchZoom(GB2);
+                                break;
+                            case "4":
+                                LaunchZoom(EAPP);
+                                break;
+                            case "5":
+                                Environment.Exit(0);
+                                break;
+                        }
+                    } while (secondaryHeader = true);
                     break;
-                case "3":
-                    // Navigate(GC2_URL);
-                    LaunchZoom(GC2);
-                    break;
-                case "4":
-                    // Navigate(GB2_URL);
-                    LaunchZoom(GB2);
-                    break;
-                case "5":
-                    // Navigate(EAPP_URL);
-                    LaunchZoom(EAPP);
-                    break;
-                case "6":
-                    Environment.Exit(0);
-                    break;
-                default: throw new Exception();
-            }
+                }
         }
+    } while (primaryHeader = true);
+}
+catch (Exception e)
+{
+
 }
 
-//void Navigate(string URL) => Process.Start(new ProcessStartInfo("cmd", $"/c start {URL}") { CreateNoWindow = true });
-void LaunchZoom(string link) => Process.Start(new ProcessStartInfo
-{
-    
-    FileName = zoomFile,
-    Arguments = $"--url={link}",
+void LaunchZoom(string link) => Process.Start(new ProcessStartInfo{
+    FileName = zoomFile, 
+    Arguments = $"--url={link}", 
     WorkingDirectory = zoomDirectory
 });
